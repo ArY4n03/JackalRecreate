@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -5,6 +6,7 @@ public class Bullet : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private float spawntime;
     private float cooldown = 3.5f;
+    public bool isPlayerBullet = true;
     private void Awake()
     {
         spawntime = Time.time;
@@ -27,6 +29,15 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        Debug.Log("hello");
+        if(isPlayerBullet)
+        {
+            Debug.Log("is player bullet");
+            if (collision.GetComponent<Enemy>())
+            {
+                Debug.Log("Detected Enemy");
+                collision.GetComponent<Enemy>().OnHit();
+            }
+        }
     }
 }

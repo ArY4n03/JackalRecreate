@@ -38,7 +38,7 @@ public class PlayerShoot : MonoBehaviour
     private void shoot()
     {
         GameObject bullet = Instantiate(bullet_prefab, transform.position, transform.rotation);
-        Rigidbody2D bullet_rb = bullet.GetComponentInChildren<Rigidbody2D>();
+        Rigidbody2D bullet_rb = bullet.GetComponent<Rigidbody2D>();
 
         bullet_rb.linearVelocity = bulletSpeed * Vector3.up;
     }
