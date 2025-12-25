@@ -29,13 +29,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("hello");
         if(isPlayerBullet)
         {
-            Debug.Log("is player bullet");
+            
             if (collision.GetComponent<Enemy>())
             {
-                Debug.Log("Detected Enemy");
+               
                 collision.GetComponent<Enemy>().OnHit();
             }
         }
