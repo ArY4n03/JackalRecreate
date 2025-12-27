@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerAwarenessController : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlayerAwarenessController : MonoBehaviour
     {
         Vector2 dir = player.position - transform.position;
         PlayerDir = dir.normalized;
+
+        
 
         if(dir.magnitude <= Distance)
         {

@@ -83,7 +83,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1949058747
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -604542940, guid: a0165d26208f4d04dae59baca1d78733, type: 3}
@@ -109,6 +109,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   speed: 3.5
+  life: 5
+  destroyed: 0
+  n: {fileID: -604542940, guid: a0165d26208f4d04dae59baca1d78733, type: 3}
+  ne: {fileID: 197108018, guid: a0165d26208f4d04dae59baca1d78733, type: 3}
+  nw: {fileID: -3071731820428832420, guid: a0165d26208f4d04dae59baca1d78733, type: 3}
+  s: {fileID: 1443621682, guid: a0165d26208f4d04dae59baca1d78733, type: 3}
+  se: {fileID: 1270425627, guid: a0165d26208f4d04dae59baca1d78733, type: 3}
+  sw: {fileID: 1245894486, guid: a0165d26208f4d04dae59baca1d78733, type: 3}
+  e: {fileID: 1323421550, guid: a0165d26208f4d04dae59baca1d78733, type: 3}
+  w: {fileID: -2090209145, guid: a0165d26208f4d04dae59baca1d78733, type: 3}
 --- !u!50 &1934874790709177441
 Rigidbody2D:
   serializedVersion: 5

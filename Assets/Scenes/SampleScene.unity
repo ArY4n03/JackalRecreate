@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000e5dfa2b9bb462c741f6e8abd
+  m_ApplyToSortingLayers: 00000000e5dfa2b9bb462c741f6e8abdf9c0d99e
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -589,7 +589,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -618,7 +618,7 @@ TilemapRenderer:
   m_MaxFrameAge: 16
   m_SortOrder: 0
   m_Mode: 1
-  m_DetectChunkCullingBounds: 0
+  m_DetectChunkCullingBounds: 1
 --- !u!1839735485 &1206014467
 Tilemap:
   m_ObjectHideFlags: 0
@@ -7102,7 +7102,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7121,8 +7121,8 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -1180508187
-  m_SortingLayer: 1
+  m_SortingLayerID: -1629896455
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -7131,7 +7131,7 @@ TilemapRenderer:
   m_MaxFrameAge: 16
   m_SortOrder: 0
   m_Mode: 1
-  m_DetectChunkCullingBounds: 0
+  m_DetectChunkCullingBounds: 1
 --- !u!1839735485 &1440105575
 Tilemap:
   m_ObjectHideFlags: 0

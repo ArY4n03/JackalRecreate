@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 3114459109
     locked: 0
+  - name: Background(collision)
+    uniqueID: 2665070841
+    locked: 0
   - name: Entites
     uniqueID: 1949058747
     locked: 0

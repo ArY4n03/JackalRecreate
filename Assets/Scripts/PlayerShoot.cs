@@ -8,10 +8,10 @@ public class PlayerShoot : MonoBehaviour
     private bool can_fire = false;
     private float shootCooldown = 0.5f;
     private float lastFireTime = 0f;
-
+    private Player player;
     private void Awake()
     {
-        
+        player = GetComponent<Player>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,7 +22,7 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(can_fire)
+        if(can_fire && player.life >=0)
         {
             float timeSinceFire = Time.time - lastFireTime;
 

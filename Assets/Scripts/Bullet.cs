@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if(isPlayerBullet)
         {
             
@@ -36,7 +37,18 @@ public class Bullet : MonoBehaviour
             {
                
                 collision.GetComponent<Enemy>().OnHit();
+                Destroy(gameObject);
             }
         }
+        else
+        {
+            if(collision.GetComponent<Player>())
+            {
+                collision.GetComponent<Player>().life -= 1;
+                Destroy(gameObject);
+            }
+        }
+
+        
     }
 }
