@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AdaptivePerformance;
 
@@ -8,7 +9,7 @@ public class Tank : MonoBehaviour
     private float Speed = 1.5f;
     private EnemyShooter enemy_shooter;
     private float min_dist = 3.5f;
-    private int life = 3;
+    private Enemy enemy;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
@@ -17,23 +18,42 @@ public class Tank : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         awarenessController = GetComponent<PlayerAwarenessController>();
         enemy_shooter = GetComponent<EnemyShooter>();
+        enemy = GetComponent<Enemy>();
     }
 
-    public void damaged() => life -= 1;
     void Update()
     {
-        // Calculate angle
-        float angle = Mathf.Atan2(awarenessController.PlayerDir.y, awarenessController.PlayerDir.x) * Mathf.Rad2Deg - 90f;
+        handleMovement();
+        handleAnimation();
 
-        // Apply rotation (Z axis in 2D)
-       transform.rotation = Quaternion.Euler(0f, 0f, angle);
+      //  if (GetComponent<Enemy>().life < 0)
+       //     GetComponentInChildren<Animator>().SetBool("Destoryed", true);
+    }
 
-        if (awarenessController.isAware && awarenessController.dir.magnitude > min_dist)
+    private void handleMovement()
+    {
+ 
+
+        if (awarenessController.isAware && awarenessController.dir.magnitude > min_dist && enemy.isActive)
 
         {
-
-            Debug.Log(awarenessController.dir.magnitude);
-             rb.linearVelocity = awarenessController.PlayerDir * Speed;
+            handleRotation();
+            rb.linearVelocity = awarenessController.PlayerDir * Speed;
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.zero;
         }
     }
+
+    private void handleRotation()
+    {
+        float angle = Mathf.Atan2(awarenessController.PlayerDir.y, awarenessController.PlayerDir.x) * Mathf.Rad2Deg - 90f;
+
+
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+    }
+
+    private void handleAnimation() => GetComponentInChildren<Animator>().SetBool("Destroyed", GetComponent<Enemy>().life < 0);
+    private void destroyed() => Destroy(gameObject);
 }

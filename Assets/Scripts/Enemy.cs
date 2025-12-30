@@ -3,15 +3,22 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField]private int life;
-
-    
-  
+    [SerializeField]public int life;
+    [SerializeField] private int scoreValue;
+    public bool isTank;
+    public bool isActive = true;
     public void Damage()
     {
         life -= 1;
 
-        if(life == 0)
-            Destroy(gameObject);
+        if (life == 0)
+        {
+            isActive = false;
+            if (!isTank)
+                Destroy(gameObject);
+        }
+       
     }
+
+
 }

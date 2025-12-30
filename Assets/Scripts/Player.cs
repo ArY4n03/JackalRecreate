@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField]private float speed = 5.5f;
     private Vector2 move_input;
     private Rigidbody2D rb;
-    public int life = 5;
+    public int life = 15;
     public bool destroyed = false;
     private SpriteRenderer sr;
 
@@ -37,6 +37,10 @@ public class Player : MonoBehaviour
         {
             rb.linearVelocity = move_input * speed;
             update_sprites(move_input);
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.zero;
         }
     }
 

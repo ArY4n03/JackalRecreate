@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   life: 1
+  scoreValue: 10
 --- !u!114 &4562502164272343696
 MonoBehaviour:
   m_ObjectHideFlags: 0
