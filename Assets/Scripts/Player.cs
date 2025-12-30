@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public int life = 15;
     public bool destroyed = false;
     private SpriteRenderer sr;
+    private bool isInvisible = false;
 
     [SerializeField] private Sprite n;
     [SerializeField] private Sprite ne;
@@ -89,4 +90,27 @@ public class Player : MonoBehaviour
         move_input = inputvalue.Get<Vector2>();
        
     }
+
+    public void OnHit()
+    {
+        if(!isInvisible)
+        {
+            
+            life -= 1;
+            Debug.Log(life);
+            toggleInvincible();
+            GetComponent<Animator>().SetBool("isHit", isInvisible);
+        }
+        
+    }
+
+    private void toggleInvincible() => isInvisible = !isInvisible;
+   
+    private void stopHitAnim()
+    {
+        toggleInvincible();
+        GetComponent<Animator>().SetBool("isHit", isInvisible);
+    }
+        
+    
 }

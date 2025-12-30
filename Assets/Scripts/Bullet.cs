@@ -44,7 +44,7 @@ public class Bullet : MonoBehaviour
         {
             if(collision.GetComponent<Player>())
             {
-                collision.GetComponent<Player>().life -= 1;
+                collision.GetComponent<Player>().OnHit();
                 Destroy(gameObject);
             }
         }
