@@ -8,7 +8,7 @@ public class PlayerAwarenessController : MonoBehaviour
 
     public bool isAware { get; private set; }
     public Vector2 PlayerDir { get; private set; }
-
+    public Vector2 dir;
     [SerializeField] private float Distance;
     private Transform player;
 
@@ -19,7 +19,7 @@ public class PlayerAwarenessController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 dir = player.position - transform.position;
+        dir = player.position - transform.position;
         PlayerDir = dir.normalized;
 
         

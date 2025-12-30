@@ -6,14 +6,12 @@ public class EnemyShooter : MonoBehaviour
     private float bullet_speed = 2.2f;
     private float cooldown = 1.5f;
     private float lastShootTime;
-    private Rigidbody2D rb;
     private PlayerAwarenessController awarenessController;
     private Vector2 targetDir;
     [SerializeField] private GameObject bulletPrefab;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         awarenessController = GetComponent<PlayerAwarenessController>();
 
     }
@@ -27,6 +25,8 @@ public class EnemyShooter : MonoBehaviour
     void Update()
     {
         updateDirection();
+       
+        
 
         float timeSinceLastShoot = Time.time - lastShootTime;
 
