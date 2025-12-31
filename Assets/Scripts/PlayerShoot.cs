@@ -66,4 +66,14 @@ public class PlayerShoot : MonoBehaviour
     {
         can_throw = inputvalue.isPressed;
     }
+    private void OnPause(InputValue inputvalue)
+    {
+        if (Time.timeScale == 1)
+            Time.timeScale = 0;
+        else
+        {
+            Time.timeScale = 1;
+        }
+            
+    }
 }
