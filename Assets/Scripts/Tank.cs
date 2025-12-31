@@ -42,6 +42,7 @@ public class Tank : MonoBehaviour
         }
         else
         {
+            
             rb.linearVelocity = Vector2.zero;
         }
     }
@@ -54,6 +55,16 @@ public class Tank : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
-    private void handleAnimation() => GetComponentInChildren<Animator>().SetBool("Destroyed", GetComponent<Enemy>().life < 0);
+    private void handleAnimation() => GetComponentInChildren<Animator>().SetBool("Destroyed", !enemy.isActive);
     private void destroyed() => Destroy(gameObject);
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.GetComponent<Player>())
+        {
+            enemy.life = -1;
+            enemy.isActive = false;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            collision.gameObject.GetComponent<Player>().OnHit();
+        }
+    }
 }
