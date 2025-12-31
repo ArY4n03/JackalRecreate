@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [SerializeField]private float speed = 5.5f;
@@ -97,9 +98,18 @@ public class Player : MonoBehaviour
         {
             
             life -= 1;
-            Debug.Log(life);
-            toggleInvincible();
-            GetComponent<Animator>().SetBool("isHit", isInvisible);
+            if (life >= 0)
+            {
+                toggleInvincible();
+                GetComponent<Animator>().SetBool("isHit", isInvisible);
+
+            }
+            else
+            {
+                SceneManager.LoadScene("TitleScreen");
+            }
+            
+            
         }
         
     }
@@ -111,6 +121,6 @@ public class Player : MonoBehaviour
         toggleInvincible();
         GetComponent<Animator>().SetBool("isHit", isInvisible);
     }
-        
+    
     
 }

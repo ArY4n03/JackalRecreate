@@ -57,17 +57,14 @@ public class PlayerShoot : MonoBehaviour
         obj_rb.linearVelocity = bulletSpeed * dir;
     }
 
-    private void OnAttack(InputValue inpuvalue)
-    {
-        can_fire = inpuvalue.isPressed;
-    }
+    private void OnAttack(InputValue inpuvalue) => can_fire = inpuvalue.isPressed;
+    
 
-    private void OnGrenade(InputValue inputvalue)
-    {
-        can_throw = inputvalue.isPressed;
-    }
+    private void OnGrenade(InputValue inputvalue) => can_throw = inputvalue.isPressed;
+
     private void OnPause(InputValue inputvalue)
     {
+       
         if (Time.timeScale == 1)
             Time.timeScale = 0;
         else
