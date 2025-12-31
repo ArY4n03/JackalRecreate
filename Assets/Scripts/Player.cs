@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     [SerializeField]private float speed = 5.5f;
-    private Vector2 move_input;
+    public Vector2 move_input;
     private Rigidbody2D rb;
     public int life = 15;
     public bool destroyed = false;

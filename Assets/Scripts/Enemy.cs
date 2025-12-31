@@ -14,11 +14,11 @@ public class Enemy : MonoBehaviour
         gameManager = FindAnyObjectByType<GameManager>();
 
     }
-    public void Damage()
+    public void Damage(int dmg)
     {
-        life -= 1;
+        life -= dmg;
 
-        if (life == 0)
+        if (life <= 0)
         {
             isActive = false;
             gameManager.increment_score(scoreValue);
