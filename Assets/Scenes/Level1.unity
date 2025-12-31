@@ -689,6 +689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   score: 0
   playerLife: 0
+  next_level: Level2
 --- !u!4 &863032109
 Transform:
   m_ObjectHideFlags: 0
