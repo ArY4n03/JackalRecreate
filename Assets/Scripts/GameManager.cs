@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private Player player;
     private void Awake()
     {
+        score = ScoreManager.score;
         player = GetComponentInChildren<Player>();
     }
 
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     
     public void load_nextScene()
     {
+        ScoreManager.score = score;
         SceneManager.LoadScene(next_level);
     }
 }
