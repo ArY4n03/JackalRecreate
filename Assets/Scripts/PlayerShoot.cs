@@ -12,6 +12,7 @@ public class PlayerShoot : MonoBehaviour
     private float lastGrenadeTime = 0f;
     private bool can_throw = false;
     private float throwCooldown = 1f;
+    private float grenadeSpeed = 6.0f;
     private Player player;
     private void Awake()
     {
@@ -32,7 +33,7 @@ public class PlayerShoot : MonoBehaviour
 
             if(timeSinceFire >= shootCooldown)
             {
-                shoot(bullet_prefab,Vector3.up);
+                shoot(bullet_prefab,Vector3.up,bulletSpeed);
                 lastFireTime = Time.time;
             }
             
@@ -43,18 +44,18 @@ public class PlayerShoot : MonoBehaviour
             float timeSinceLastThrow = Time.time - lastGrenadeTime;
             if(timeSinceLastThrow >= throwCooldown)
             {
-                shoot(grenade_prefab, player.move_input);
+                shoot(grenade_prefab, player.move_input,grenadeSpeed);
                 lastGrenadeTime = Time.time;
             }
         }
     }
 
-    private void shoot(GameObject prefab,Vector3 dir)
+    private void shoot(GameObject prefab,Vector3 dir,float speed)
     {
         GameObject obj = Instantiate(prefab, transform.position, transform.rotation);
         Rigidbody2D obj_rb = obj.GetComponent<Rigidbody2D>();
 
-        obj_rb.linearVelocity = bulletSpeed * dir;
+        obj_rb.linearVelocity = speed * dir;
     }
 
     private void OnAttack(InputValue inpuvalue) => can_fire = inpuvalue.isPressed;

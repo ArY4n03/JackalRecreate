@@ -6,10 +6,15 @@ public class Tank : MonoBehaviour
 {
     private PlayerAwarenessController awarenessController;
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
     private float Speed = 1.5f;
     private EnemyShooter enemy_shooter;
+
     private float min_dist = 3.5f;
     private Enemy enemy;
+    public bool isBoss;
+    [SerializeField] private Sprite bossSprite;
+    [SerializeField] private Sprite normalSprite;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
@@ -19,6 +24,26 @@ public class Tank : MonoBehaviour
         awarenessController = GetComponent<PlayerAwarenessController>();
         enemy_shooter = GetComponent<EnemyShooter>();
         enemy = GetComponent<Enemy>();
+        sr = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        GetComponent<Animator>().enabled = false;
+
+        if (isBoss)
+        {
+            Debug.Log("Boss Tank spawned");
+            sr.sprite = bossSprite;
+            enemy.life = 8;
+            
+        }
+        else
+        {
+            enemy.life = 5;
+            sr.sprite = normalSprite;
+        }
+
     }
 
     void Update()
@@ -26,8 +51,6 @@ public class Tank : MonoBehaviour
         handleMovement();
         handleAnimation();
 
-      //  if (GetComponent<Enemy>().life < 0)
-       //     GetComponentInChildren<Animator>().SetBool("Destoryed", true);
     }
 
     private void handleMovement()
@@ -55,7 +78,13 @@ public class Tank : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
-    private void handleAnimation() => GetComponentInChildren<Animator>().SetBool("Destroyed", !enemy.isActive);
+    private void handleAnimation()
+    {
+        if (!enemy.isActive)
+        {
+            GetComponent<Animator>().enabled = true;
+        }
+    }
     private void destroyed() => Destroy(gameObject);
     private void OnCollisionEnter2D(Collision2D collision)
     {

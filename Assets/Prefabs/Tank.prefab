@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29d29ae010c8e14eb961bcc5388b086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  life: 3
+  life: 5
   scoreValue: 20
   isTank: 1
   isActive: 1
@@ -130,6 +130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36677af240b89fc4496acdfe7c5c0a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tank
+  isBoss: 0
+  bossSprite: {fileID: -2429863517195171182, guid: c63716670781ffd4c8128a79a46c5916, type: 3}
+  normalSprite: {fileID: -1609227123, guid: b1258f386edcc8f4b9f082b100362df0, type: 3}
 --- !u!114 &3239886336640027139
 MonoBehaviour:
   m_ObjectHideFlags: 0
