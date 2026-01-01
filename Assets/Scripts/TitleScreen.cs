@@ -11,11 +11,11 @@ public class TitleScreen : MonoBehaviour
     public void exitBtn()
     {
         #if (UNITY_EDITOR)
-            {
+            
                 UnityEditor.EditorApplication.isPlaying = false;
         #endif
                 Application.Quit();
-            }
+            
     }
 
     public void controlsBtn()
