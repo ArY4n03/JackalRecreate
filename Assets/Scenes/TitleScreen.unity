@@ -1210,7 +1210,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 96848547}
         m_TargetAssemblyTypeName: TitleScreen, Assembly-CSharp
-        m_MethodName: exitBtn
+        m_MethodName: controlsBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
