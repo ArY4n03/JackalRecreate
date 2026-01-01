@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public bool destroyed = false;
     private SpriteRenderer sr;
     private bool isInvisible = false;
-    private AudioManager audioManager;
+    
     [SerializeField] private Sprite n;
     [SerializeField] private Sprite ne;
     [SerializeField] private Sprite nw;
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        audioManager = FindAnyObjectByType<AudioManager>();
+        
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

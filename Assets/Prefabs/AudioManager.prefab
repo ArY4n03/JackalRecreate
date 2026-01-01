@@ -179,6 +179,7 @@ MonoBehaviour:
   SFX: {fileID: 5884168069815743980}
   backgroundMusic: {fileID: 8300000, guid: 635b35f08d770d94c8f872614121a385, type: 3}
   explosionSound: {fileID: 8300000, guid: f48f0c71406e84446b92664fc0d43012, type: 3}
+  shootSound: {fileID: 8300000, guid: 23b861bb8e8fac14199add892f7561e7, type: 3}
 --- !u!1 &1671717518467833203
 GameObject:
   m_ObjectHideFlags: 0

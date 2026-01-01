@@ -5,6 +5,7 @@ public class PlayerShoot : MonoBehaviour
 {
     [SerializeField]private GameObject bullet_prefab;
     [SerializeField] private GameObject grenade_prefab;
+    private AudioManager audioManager;
     private float bulletSpeed = 3.5f;
     private bool can_fire = false;
     private float shootCooldown = 0.5f;
@@ -17,6 +18,7 @@ public class PlayerShoot : MonoBehaviour
     private void Awake()
     {
         player = GetComponent<Player>();
+        audioManager = FindAnyObjectByType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -55,6 +57,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void shoot(GameObject prefab,Vector3 dir,float speed)
     {
+        audioManager.playSFX(audioManager.shootSound);
         GameObject obj = Instantiate(prefab, transform.position, transform.rotation);
         Rigidbody2D obj_rb = obj.GetComponent<Rigidbody2D>();
 

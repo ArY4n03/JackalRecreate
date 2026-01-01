@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioClip backgroundMusic;
     [SerializeField] public AudioClip explosionSound;
+    [SerializeField] public AudioClip shootSound;
     private void Awake()
     {
         BGM.clip = backgroundMusic;
@@ -18,4 +19,5 @@ public class AudioManager : MonoBehaviour
         SFX.clip = clip;
         SFX.Play();
     }
+
 }
