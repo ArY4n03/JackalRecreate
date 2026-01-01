@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sr;
+    private Enemy enemy;
     private float speed = 3.5f;
     private void Awake()
     {
@@ -13,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
         sr = GetComponentInChildren<SpriteRenderer>();
+        enemy = GetComponent<Enemy>();
     }
 
 
@@ -40,5 +42,13 @@ public class EnemyMovement : MonoBehaviour
 
 
     private void handleAnimation() => anim.SetBool("isAware", awarenessController.isAware);
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Player>())
+        {
+            enemy.Damage(1);
+        }       
+    }
 }
 

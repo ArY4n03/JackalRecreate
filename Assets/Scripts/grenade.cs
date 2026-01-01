@@ -15,7 +15,7 @@ public class grenade : MonoBehaviour
     private void blast()
     {
         isBlasting = true;
-        //rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        
         anim.SetBool("blast", true);
     }
 
@@ -28,7 +28,8 @@ public class grenade : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<Enemy>())
         {
-            if (isBlasting)
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            if (!isBlasting)
             {
                 
                 blast();

@@ -9,7 +9,7 @@ public class Tank : MonoBehaviour
     private SpriteRenderer sr;
     private float Speed = 1.5f;
     private EnemyShooter enemy_shooter;
-
+    private AudioManager audioManager;
     private float min_dist = 3.5f;
     private Enemy enemy;
     public bool isBoss;
@@ -25,15 +25,20 @@ public class Tank : MonoBehaviour
         enemy_shooter = GetComponent<EnemyShooter>();
         enemy = GetComponent<Enemy>();
         sr = GetComponent<SpriteRenderer>();
+        audioManager = FindAnyObjectByType<AudioManager>();
     }
 
     private void Start()
     {
         GetComponent<Animator>().enabled = false;
+        updateSprite();
+    }
 
+    private void updateSprite()
+    { 
         if (isBoss)
         {
-            Debug.Log("Boss Tank spawned");
+            //Debug.Log("Boss Tank spawned");
             sr.sprite = bossSprite;
             enemy.life = 8;
             
@@ -82,6 +87,7 @@ public class Tank : MonoBehaviour
     {
         if (!enemy.isActive)
         {
+            audioManager.playSFX(audioManager.explosionSound);
             GetComponent<Animator>().enabled = true;
         }
     }

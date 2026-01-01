@@ -18,11 +18,6 @@ public class PlayerShoot : MonoBehaviour
     {
         player = GetComponent<Player>();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -44,7 +39,15 @@ public class PlayerShoot : MonoBehaviour
             float timeSinceLastThrow = Time.time - lastGrenadeTime;
             if(timeSinceLastThrow >= throwCooldown)
             {
-                shoot(grenade_prefab, player.move_input,grenadeSpeed);
+                if (player.move_input == Vector2.zero)
+                {
+                    shoot(grenade_prefab, Vector3.up, grenadeSpeed);
+                }
+                else
+                {
+                    shoot(grenade_prefab, player.move_input, grenadeSpeed);
+                }
+                    
                 lastGrenadeTime = Time.time;
             }
         }

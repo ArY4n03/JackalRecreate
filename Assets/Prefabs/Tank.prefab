@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAwarenessController
   dir: {x: 0, y: 0}
-  Distance: 5
+  Distance: 7
 --- !u!114 &410501067195483828
 MonoBehaviour:
   m_ObjectHideFlags: 0

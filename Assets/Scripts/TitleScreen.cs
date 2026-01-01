@@ -5,7 +5,7 @@ public class TitleScreen : MonoBehaviour
 {
     public void StartBtn()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("StartingScreen");
     }
 
     public void exitBtn()
